@@ -13,10 +13,12 @@ import org.quiltmc.qsl.networking.api.client.ClientPlayNetworking;
 
 public class CephaloClient extends Cephalo implements ClientModInitializer {
 
+	public static KeyBind swimmingBind = KeyBindingHelper.registerKeyBinding(new KeyBind("key.cephalo.swim", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_ALT, "category.cephalo.test"));
+
 	@Override
 	public void onInitializeClient(ModContainer mod) {
 
-		KeyBind swimmingBind = KeyBindingHelper.registerKeyBinding(new KeyBind("key.cephalo.swim", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_ALT, "category.cephalo.test"));
+
 
 		Cephalo.updater = new CephaloPlayerUpdater() {
 			@Override
