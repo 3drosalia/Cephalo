@@ -18,15 +18,6 @@ public class CephaloClient extends Cephalo implements ClientModInitializer {
 
 		KeyBind swimmingBind = KeyBindingHelper.registerKeyBinding(new KeyBind("key.cephalo.swim", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_ALT, "category.cephalo.test"));
 
-		ClientTickEvents.END.register(client -> {
-			if (swimmingBind.wasPressed()) {
-				boolean setSquidSwimming = true;
-			}
-			if (!swimmingBind.wasPressed()) {
-				boolean setSquidSwimming = false;
-			}
-		});
-
 		Cephalo.updater = new CephaloPlayerUpdater() {
 			@Override
 			public void setSquidSwimming(PlayerEntity entity, boolean state) {

@@ -55,8 +55,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements swimming
 		if (isClimbing())
 			return;
 
-		if setSquidSwimming = true {
-			Cephalo.updater.setSquidSwimming((PlayerEntity) (Object) this, cephalo_wasSwimming);
+		while (swimmingBind.isPressed())
 
 		}
 
