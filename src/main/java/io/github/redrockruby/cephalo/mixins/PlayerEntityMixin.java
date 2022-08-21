@@ -33,7 +33,6 @@ public abstract class PlayerEntityMixin extends LivingEntity implements swimming
 	protected abstract float getVelocityMultiplier();
 
 	private boolean cephalo_wasSwimming = false;
-	private boolean cephalo_wasReloading = false;
 
 	protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
 		super(entityType, world);
