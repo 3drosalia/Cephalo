@@ -20,7 +20,7 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "io.github.redrockruby.cephalo.ExampleMod"
+			"init": "io.github.redrockruby.cephalo.Cephalo"
 		},
 		"depends": [
 			{
