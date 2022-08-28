@@ -2,7 +2,7 @@
  {
 	"schema_version": 1,
 	"quilt_loader": {
-		"group": "io.github.redrockruby",
+		"group": "io.github.marietheruby",
 		"id": "cephalo",
 		"version": "b0.0.1",
 		"metadata": {
@@ -13,14 +13,14 @@
 			},
 			"contact": {
 				"homepage": "https://example.com/",
-				"issues": "https://github.com/redrockruby/cephalo/issues",
-				"sources": "https://github.com/redrockruby/cephalo"
+				"issues": "https://github.com/marie-the-ruby/cephalo/issues",
+				"sources": "https://github.com/marie-the-ruby/cephalo"
 			},
 			"icon": "assets/cephalo/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "io.github.redrockruby.cephalo.Cephalo"
+			"init": "io.github.marietheruby.cephalo.Cephalo"
 		},
 		"depends": [
 			{

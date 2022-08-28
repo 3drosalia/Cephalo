@@ -1,4 +1,4 @@
-package io.github.redrockruby.cephalo;
+package io.github.marietheruby.cephalo;
 
 import com.mojang.blaze3d.platform.InputUtil;
 import net.minecraft.client.option.KeyBind;
@@ -7,7 +7,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import org.lwjgl.glfw.GLFW;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
-import org.quiltmc.qsl.lifecycle.api.client.event.ClientTickEvents;
 import org.quiltmc.qsl.networking.api.PacketByteBufs;
 import org.quiltmc.qsl.networking.api.client.ClientPlayNetworking;
 
@@ -20,15 +19,16 @@ public class CephaloClient extends Cephalo implements ClientModInitializer {
 
 
 
-		Cephalo.updater = new CephaloPlayerUpdater() {
+		updater = new CephaloPlayerUpdater() {
 			@Override
 			public void setSquidSwimming(PlayerEntity entity, boolean state) {
 				var buf = PacketByteBufs.create();
+				buf.writeUuid(entity.getUuid());
 				buf.writeBoolean(state);
-				ClientPlayNetworking.send(Cephalo.setSquidSwimming, buf);
+				ClientPlayNetworking.send(setSquidSwimming, buf);
 			}
 		};
-		ClientPlayNetworking.registerGlobalReceiver(Cephalo.setSquidSwimming, (client, handler, buf, responseSender) -> {
+		ClientPlayNetworking.registerGlobalReceiver(setSquidSwimming, (client, handler, buf, responseSender) -> {
 			var uuid = buf.readUuid();
 			var value = buf.readBoolean();
 

@@ -1,5 +1,6 @@
-package io.github.redrockruby.cephalo;
+package io.github.marietheruby.cephalo;
 
+import io.github.marietheruby.cephalo.weapons.weaponRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
@@ -7,13 +8,16 @@ import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.quiltmc.qsl.networking.api.PacketByteBufs;
 import org.quiltmc.qsl.networking.api.ServerPlayNetworking;
+import io.github.marietheruby.cephalo.weapons.weaponRegistry;
 
 public class Cephalo implements ModInitializer {
 	public static final Identifier setSquidSwimming = new Identifier("cephalo", "setswimming");
 	public static CephaloPlayerUpdater updater;
+	public static final String MOD_ID = "cephalo";
 
 	@Override
 	public void onInitialize(ModContainer mod) {
+		weaponRegistry.registerItems();
 		updater = new CephaloPlayerUpdater() {
 			@Override
 			public void setSquidSwimming(PlayerEntity entity, boolean state) {

@@ -1,4 +1,4 @@
-package io.github.redrockruby.cephalo;
+package io.github.marietheruby.cephalo;
 
 import net.minecraft.entity.player.PlayerEntity;
 

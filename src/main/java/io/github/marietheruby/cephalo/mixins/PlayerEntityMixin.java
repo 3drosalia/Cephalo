@@ -1,21 +1,17 @@
-package io.github.redrockruby.cephalo.mixins;
+package io.github.marietheruby.cephalo.mixins;
 
-import io.github.redrockruby.cephalo.swimming;
+import io.github.marietheruby.cephalo.CephaloClient;
+import io.github.marietheruby.cephalo.swimming;
 import net.minecraft.entity.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import static io.github.redrockruby.cephalo.CephaloClient.*;
-
+import io.github.marietheruby.cephalo.weapons.InkAmount;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements swimming {
@@ -26,8 +22,9 @@ public abstract class PlayerEntityMixin extends LivingEntity implements swimming
 
 	@Inject(method = "updatePose", at = @At("HEAD"), cancellable = true)
 	public void updatePose(CallbackInfo ci) {
-		if (swimmingBind.isPressed()) {
+		if (CephaloClient.swimmingBind.isPressed()) {
 			setPose(EntityPose.SWIMMING);
+			InkAmount.refillInk();
 			ci.cancel();
 		}
 	}
