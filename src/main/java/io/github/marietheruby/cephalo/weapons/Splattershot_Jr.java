@@ -19,7 +19,7 @@ public class Splattershot_Jr extends Item {
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 		ItemStack itemStack = user.getStackInHand(hand);
-		if (InkAmount.InkAmount > 1) {
+		if (InkAmount.InkAmount > 5) {
 			world.playSound(
 					null,
 					user.getX(),
@@ -31,7 +31,7 @@ public class Splattershot_Jr extends Item {
 					0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F)
 			);
 			if (!world.isClient) {
-				SnowballEntity inkEntity = new SnowballEntity(world, user);
+				InkEntity inkEntity = new InkEntity(world, user, 6);
 				inkEntity.setItem(itemStack);
 				inkEntity.setProperties(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 1.0F);
 				world.spawnEntity(inkEntity);
